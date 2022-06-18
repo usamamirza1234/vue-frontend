@@ -1,19 +1,25 @@
 <template>
   <div id="app">
     <div class="container">
+      <SignIn/>
       <h1>Blogs App</h1>
       <h6>Powered by: Vue 3 | Vuex 4 | Axios | Ruby on Rails 6 | Postgres</h6>
-    <AllBlog/>
+      <AddBlog/>
+      <AllBlog/>
     </div>
   </div>
 </template>
 
 <script>
+import SignIn from "@/components/Signin.vue"
 import AllBlog from "@/components/AllBlog.vue"
+import AddBlog from "@/components/AddBlog.vue"
 export default {
   name: "App",
   components: {
-    AllBlog
+    SignIn,
+    AllBlog,
+    AddBlog
   },
 };
 </script>

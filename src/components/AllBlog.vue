@@ -1,20 +1,37 @@
 <template>
   <div class="wrapper">
     <h1>Blogs</h1>
-    <div class="legend">
-      <span>Double click todo some operations</span>
-      <span><span class="incomplete-box"></span> = Incomplete</span>
-      <span><span class="complete-box"></span> = Complete</span>
-    </div>
+    {{signedInUser}}
     <div class="blogs">
 
+      <div v-for="blog in allBlogs.data" :key="blog.id" class="blog" @dblclick="onDoubleClick(blog)">
+        {{blog.heading}}
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import {mapGetters,mapActions} from 'vuex';
 export default {
-  name: "AllBlog"
+  name: "AllBlog",
+  methods: {
+    ...mapActions(['fetchBlog','deleteBlog','updateBlog']),
+    onDoubleClick(currentBlog){
+      const updateTodo = {
+        id: currentBlog.id,
+        heading: currentBlog.heading
+      }
+      this.updateBlog(updateTodo)
+    }
+  },
+  computed: {
+    ...mapGetters(['allBlogs',"signedInUser"])
+  },
+  created() {
+    console.log("Created");
+    this.fetchBlog();
+  }
 }
 </script>
 
