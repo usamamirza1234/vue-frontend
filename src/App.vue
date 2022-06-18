@@ -1,28 +1,10 @@
 <template>
-  <div id="app">
-    <div class="container">
-      <SignIn/>
-      <h1>Blogs App</h1>
-      <h6>Powered by: Vue 3 | Vuex 4 | Axios | Ruby on Rails 6 | Postgres</h6>
-      <AddBlog/>
-      <AllBlog/>
-    </div>
-  </div>
+  <nav>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link>
+  </nav>
+  <router-view/>
 </template>
-
-<script>
-import SignIn from "@/components/Signin.vue"
-import AllBlog from "@/components/AllBlog.vue"
-import AddBlog from "@/components/AddBlog.vue"
-export default {
-  name: "App",
-  components: {
-    SignIn,
-    AllBlog,
-    AddBlog
-  },
-};
-</script>
 
 <style>
 body {
@@ -35,5 +17,13 @@ body {
   margin: auto;
   overflow: auto;
   padding: 0 2rem;
+}
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
