@@ -17,7 +17,7 @@ const getters = {
 
 const actions = {
     async fetchBlog ({commit}){
-        const response = await axios.get(url+"/blogs")
+        const response = await axios.get(url+"/posts")
         commit("setBlogs", response.data)
     },
     async addBlog ({commit}, heading) {
