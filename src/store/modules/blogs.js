@@ -2,12 +2,13 @@ import axios from 'axios';
 const baseUrl = "http://localhost:3000";
 const apiUrl = "/api/v1"
 const url = baseUrl+apiUrl
-const token = "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.DiPWrOKsx3sPeVClrm_j07XNdSYHgBa3Qctosdxax3w"
+const token = "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNH0.0YjXINikFbDsImGlJSCkLecmbiIQVjgsPIQJj3lkePE"
 axios.defaults.headers.common = {'Authorization': `Bearer ${token}`}
 
 const state = {
     blogs: Array,
-    user: Array
+    user: Array,
+    created_blog: Array
 };
 
 const getters = {
@@ -29,6 +30,10 @@ const actions = {
             })
         commit("newBlog", response.data)
     },
+    async addBlogPost ({commit}, data){
+        const response = await axios.post(url + "/posts", data)
+        commit("newBlogPost", response.data)
+    },
     async loginUser({commit}, data){
         let email =data.email
         let password =data.password
@@ -47,6 +52,7 @@ const actions = {
 const mutations ={
     setBlogs: (state,blogs) => (state.blogs = blogs),
     newBlog: (state, blog) => (state.blogs.unshift(blog)),
+    newBlogPost: (state, blog) => (state.created_blog = blog),
     signedInUser: (state, user) => (state.user =  user)
 };
 
