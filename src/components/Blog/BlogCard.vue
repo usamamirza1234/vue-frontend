@@ -2,7 +2,7 @@
   <div class=" py-2 px-4">
     <div class="max-w-lg bg-white rounded-xl overflow-hidden shadow-lg">
       <div>
-        <img  alt="Banner" :src="post.banner_path" class="h-40 w-full object-cover rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl"/>
+        <img  alt="Banner" :src="post.banner_path" class="g-image h-40 w-full object-cover rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl"/>
          <div class="p-2">
           <h2 class="font-bold text-lg">{{ post.title }}</h2>
           <h6>Posted on: {{ new Date(post.created_at).toLocaleString("en-us", {dateStyle: "long"}) }}</h6>
