@@ -1,9 +1,8 @@
 <template>
   <div class="wrapper">
     <h1>Blogs</h1>
-    {{signedInUser}}
+<!--    {{signedInUser}}-->
     <div class="blogs">
-
       <div v-for="blog in allBlogs.data" :key="blog.id" class="blog" @dblclick="onDoubleClick(blog)">
         {{blog.heading}}
       </div>
